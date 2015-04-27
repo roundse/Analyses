@@ -322,7 +322,7 @@ end
 for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srInpSm(:,12));
 end
-[k, indecesPos3] = find(p<.05);
+[k, indecesPos4] = find(p<.05);
 % if isempty(indecesPos3) == 0
 %     figure;
 %     plot (srInpSm(:,3), 'b');
@@ -400,7 +400,7 @@ end
 % Stick all 19 together and then find unique values
 AllInputNs = [indecesHD1 indecesHD2 indecesHD3 indecesHD4 indecesAV1 indecesAV2...
                 indecesAV3 indecesAV4 indecesLV1 indecesLV2 indecesLV3 indecesLV4...
-                indecesPos1 indecesPos2 indecesPos3 indecesProg1 indecesProg2...
+                indecesPos1 indecesPos2 indecesPos3 indecesPos4 indecesProg1 indecesProg2...
                 indecesProg3];
             
 uniq = unique(AllInputNs);
@@ -440,7 +440,8 @@ for i = 1:length(AllInputNs)
     end
     if ( ~isempty(find(indecesPos1 == AllInputNs(i))) || ...
             ~isempty(find(indecesPos2 == AllInputNs(i))) || ...
-            ~isempty(find(indecesPos3 == AllInputNs(i))) )
+            ~isempty(find(indecesPos3 == AllInputNs(i))) ) || ...
+            ~isempty(find(indecesPos4 == AllInputNs(i)) )
         
         belongs(4) = true;
         disp('Sensitive to position!');

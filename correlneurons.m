@@ -272,6 +272,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,9));
 end
 [k, indecesPos1] = find(p<.05);
+k
+indecesPos1
 % if isempty(indecesPos1) == 0
 %     figure;
 %     plot (srExcInpSm(:,1), 'b');
@@ -289,6 +291,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,10));
 end
 [k, indecesPos2] = find(p<.05);
+k
+indecesPos2
 % if isempty(indecesPos2) == 0
 %     figure;
 %     plot (srExcInpSm(:,2), 'b');
@@ -306,6 +310,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,11));
 end
 [k, indecesPos3] = find(p<.05);
+k
+indecesPos3
 % if isempty(indecesPos3) == 0
 %     figure;
 %     plot (srExcInpSm(:,3), 'b');
@@ -322,7 +328,9 @@ end
 for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,12));
 end
-[k, indecesPos3] = find(p<.05);
+[k, indecesPos4] = find(p<.05);
+k
+indecesPos4
 % if isempty(indecesPos3) == 0
 %     figure;
 %     plot (srExcInpSm(:,3), 'b');
@@ -343,6 +351,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,18));
 end
 [k, indecesProg1] = find(p<.05);
+k
+indecesProg1
 % if isempty(indecesProg1) == 0
 %     figure;
 %     plot (srExcInpSm(:,1), 'b');
@@ -360,6 +370,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,19));
 end
 [k, indecesProg2] = find(p<.05);
+k
+indecesProg2
 % if isempty(indecesProg2) == 0
 %     figure;
 %     plot (srExcInpSm(:,2), 'b');
@@ -377,6 +389,8 @@ for i = 1:109
     [r(i), p(i)] = corr(srExcSm(:,i), srExcInpSm(:,20));
 end
 [k, indecesProg3] = find(p<.05);
+k
+indecesProg3
 % if isempty(indecesProg3) == 0
 %     figure;
 %     plot (srExcInpSm(:,3), 'b');
@@ -400,7 +414,7 @@ end
 % Stick all 19 together and then find unique values
 AllInputNs = [indecesHD1 indecesHD2 indecesHD3 indecesHD4 indecesAV1 indecesAV2...
                 indecesAV3 indecesAV4 indecesLV1 indecesLV2 indecesLV3 indecesLV4...
-                indecesPos1 indecesPos2 indecesPos3 indecesProg1 indecesProg2...
+                indecesPos1 indecesPos2 indecesPos3 indecesPos4 indecesProg1 indecesProg2...
                 indecesProg3];
             
 uniq = unique(AllInputNs);
@@ -440,7 +454,8 @@ for i = 1:length(AllInputNs)
     end
     if ( ~isempty(find(indecesPos1 == AllInputNs(i))) || ...
             ~isempty(find(indecesPos2 == AllInputNs(i))) || ...
-            ~isempty(find(indecesPos3 == AllInputNs(i))) )
+            ~isempty(find(indecesPos3 == AllInputNs(i))) || ...
+            ~isempty(find(indecesPos4 == AllInputNs(i)) ))
         
         belongs(4) = true;
         disp('Sensitive to position!');
