@@ -472,7 +472,7 @@ for i = 1:length(AllInputNs)
         disp('something is wrong, doesnt belong to any');
     end
 end
-
+% 
 % if belongs5
 %     disp([num2str(length(belongs5)), ' neurons respond to all 5 inputs']);
 % end
@@ -711,34 +711,34 @@ for i = 1:length(belongs2)
         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srInpSm(:,2));
         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srInpSm(:,3));
     end 
-    rAll(5) = max(pProg);
+    rAll(5) = min(pProg);
 %     rAll(:)
 %     min(rAll)
-    if max(rAll) == max(pHD)
+    if min(rAll) == min(pHD)
         rHeadDir(i) = true;
         rLinVel(i) = false;
         rAngVel(i) = false;
         rPosition(i) = false;
         rProgression(i) = false;
-    elseif max(rAll) == max(pAV)
+    elseif min(rAll) == min(pAV)
         rHeadDir(i) = false;
         rLinVel(i) = false;
         rAngVel(i) = true;
         rPosition(i) = false;
         rProgression(i) = false;
-    elseif max(rAll) == max(pLV)
+    elseif min(rAll) == min(pLV)
         rHeadDir(i) = false;
         rLinVel(i) = true;
         rAngVel(i) = false;
         rPosition(i) = false;
         rProgression(i) = false;
-    elseif max(rAll) == max(pPos)
+    elseif min(rAll) == min(pPos)
         rHeadDir(i) = false;
         rLinVel(i) = false;
         rAngVel(i) = false;
         rPosition(i) = true;
         rProgression(i) = false;
-    elseif max(rAll) == max(pProg)
+    elseif min(rAll) == min(pProg)
         rHeadDir(i) = false;
         rLinVel(i) = false;
         rAngVel(i) = false;

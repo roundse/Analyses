@@ -487,121 +487,122 @@ for i = 1:length(AllInputNs)
     end
 end
 
-% if belongs5
-%     disp([num2str(length(belongs5)), ' neurons respond to all 5 inputs']);
-% end
+if belongs5
+    disp([num2str(length(belongs5)), ' neurons respond to all 5 inputs']);
+end
 % if belongs4
 %     disp([num2str(length(belongs4)), ' neurons respond to 4 inputs']);
 % end
 % if belongs3
 %     length(belongs3)
 % end
-if belongs2
-    length(belongs2)
-end
+% if belongs2
+%     length(belongs2)
+% end
 % if belongs1
 %     length(belongs1)
 % end
 
 figure;
-% percent5 = length(belongs5)/total;
+percent5 = length(belongs5)/total;
 % percent4 = length(belongs4)/total;
-percent2 = length(belongs2)/total;
-% x = [percent5];
-x = [percent2];
-labels = {'2 Inputs'};
+% percent2 = length(belongs2)/total;
+x = [percent5];
+% x = [percent2];
+labels = {'5 Inputs'};
 pie(x, labels);
 title('Sensitivity to Multiple Inputs');
-legend('2 inputs', 'Location', 'South');
-% total5 = length(belongs5);
-% for i = 1:length(belongs5)
-%     for j = 1:4
-%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
-%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
-%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
-%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
-%     end
-%     rAll(1) = min(pHD);
-%     for j = 1:4
-%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
-%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
-%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
-%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
-%     end
-%     rAll(2) = min(pAV);
-%     for j = 1:5
-%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
-%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
-%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
-%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
-%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,5));
-%     end
-%     rAll(3) = min(pLV);
-%     for j = 1:3
-%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
-%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
-%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
-%     end
-%     rAll(4) = min(pPos);
-%     for j = 1:3
-%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
-%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
-%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
-%     end 
-%     rAll(5) = min(pProg);
-% %     rAll(:)
-% %     min(rAll)
-%     if min(rAll) == min(pHD)
-%         rHeadDir(i) = true;
-%         rLinVel(i) = false;
-%         rAngVel(i) = false;
-%         rPosition(i) = false;
-%         rProgression(i) = false;
-%     elseif min(rAll) == min(pAV)
-%         rHeadDir(i) = false;
-%         rLinVel(i) = false;
-%         rAngVel(i) = true;
-%         rPosition(i) = false;
-%         rProgression(i) = false;
-%     elseif min(rAll) == min(pLV)
-%         rHeadDir(i) = false;
-%         rLinVel(i) = true;
-%         rAngVel(i) = false;
-%         rPosition(i) = false;
-%         rProgression(i) = false;
-%     elseif min(rAll) == min(pPos)
-%         rHeadDir(i) = false;
-%         rLinVel(i) = false;
-%         rAngVel(i) = false;
-%         rPosition(i) = true;
-%         rProgression(i) = false;
-%     elseif min(rAll) == min(pProg)
-%         rHeadDir(i) = false;
-%         rLinVel(i) = false;
-%         rAngVel(i) = false;
-%         rPosition(i) = false;
-%         rProgression(i) = true;
-%     else
-%         disp('if no correl is highest, something is the matter');
-%     end
-% %     pause
-% end
-% 
-% figure;
-% percentHD = (sum(rHeadDir)/total5) * 100;
-% disp([num2str(percentHD),'% are most response to head direction']);
-% percentLV = (sum(rLinVel)/total5) * 100;
-% disp([num2str(percentLV),'% are most response to linear velocity']);
-% percentAV = (sum(rAngVel)/total5) * 100;
-% disp([num2str(percentAV),'% are most response to angular velocity']);
-% percentPos = (sum(rPosition)/total5) * 100;
-% disp([num2str(percentPos),'% are most response to position']);
-% percentProg = (sum(rProgression)/total5) * 100;
-% disp([num2str(percentProg),'% are most response to progression']);
-% 
-% x = [percentHD percentLV percentAV percentPos percentProg];
-% labels = {'Head Direction','LinearVelocity','Angular Velocity', 'Position','Progression'};
-% pie(x,labels);
+legend('5 inputs', 'Location', 'South');
+total5 = length(belongs5);
+for i = 1:length(belongs5)
+    for j = 1:4
+        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
+        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
+        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
+        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
+    end
+    rAll(1) = min(pHD);
+    for j = 1:4
+        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
+        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
+        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
+        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
+    end
+    rAll(2) = min(pAV);
+    for j = 1:5
+        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
+        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
+        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
+        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
+        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,5));
+    end
+    rAll(3) = min(pLV);
+    for j = 1:3
+        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
+        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
+        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
+        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,4));
+    end
+    rAll(4) = min(pPos);
+    for j = 1:3
+        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,1));
+        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,2));
+        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs5(i)), srExcInpSm(:,3));
+    end 
+    rAll(5) = min(pProg);
+%     rAll(:)
+%     min(rAll)
+    if min(rAll) == min(pHD)
+        rHeadDir(i) = true;
+        rLinVel(i) = false;
+        rAngVel(i) = false;
+        rPosition(i) = false;
+        rProgression(i) = false;
+    elseif min(rAll) == min(pAV)
+        rHeadDir(i) = false;
+        rLinVel(i) = false;
+        rAngVel(i) = true;
+        rPosition(i) = false;
+        rProgression(i) = false;
+    elseif min(rAll) == min(pLV)
+        rHeadDir(i) = false;
+        rLinVel(i) = true;
+        rAngVel(i) = false;
+        rPosition(i) = false;
+        rProgression(i) = false;
+    elseif min(rAll) == min(pPos)
+        rHeadDir(i) = false;
+        rLinVel(i) = false;
+        rAngVel(i) = false;
+        rPosition(i) = true;
+        rProgression(i) = false;
+    elseif min(rAll) == min(pProg)
+        rHeadDir(i) = false;
+        rLinVel(i) = false;
+        rAngVel(i) = false;
+        rPosition(i) = false;
+        rProgression(i) = true;
+    else
+        disp('if no correl is highest, something is the matter');
+    end
+%     pause
+end
+
+figure;
+percentHD = (sum(rHeadDir)/total5) * 100;
+disp([num2str(percentHD),'% are most response to head direction']);
+percentLV = (sum(rLinVel)/total5) * 100;
+disp([num2str(percentLV),'% are most response to linear velocity']);
+percentAV = (sum(rAngVel)/total5) * 100;
+disp([num2str(percentAV),'% are most response to angular velocity']);
+percentPos = (sum(rPosition)/total5) * 100;
+disp([num2str(percentPos),'% are most response to position']);
+percentProg = (sum(rProgression)/total5) * 100;
+disp([num2str(percentProg),'% are most response to progression']);
+
+x = [percentHD percentLV percentAV percentPos percentProg];
+labels = {'Head Direction','LinearVelocity','Angular Velocity', 'Position','Progression'};
+pie(x,labels);
 
 % 
 % total4 = length(belongs4);
@@ -690,91 +691,91 @@ legend('2 inputs', 'Location', 'South');
 % percentProg = (sum(rProgression)/total4) * 100;
 % disp([num2str(percentProg),'% are most response to progression']);
 
-total2 = length(belongs2);
-for i = 1:length(belongs2)
-    for j = 1:4
-        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
-        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
-        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
-        [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
-    end
-    rAll(1) = min(pHD);
-    for j = 1:4
-        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
-        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
-        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
-        [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
-    end
-    rAll(2) = min(pAV);
-    for j = 1:5
-        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
-        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
-        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
-        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
-        [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,5));
-    end
-    rAll(3) = min(pLV);
-    for j = 1:3
-        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
-        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
-        [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
-    end
-    rAll(4) = min(pPos);
-    for j = 1:3
-        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
-        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
-        [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
-    end 
-    rAll(5) = max(pProg);
-%     rAll(:)
-%     min(rAll)
-    if max(rAll) == max(pHD)
-        rHeadDir(i) = true;
-        rLinVel(i) = false;
-        rAngVel(i) = false;
-        rPosition(i) = false;
-        rProgression(i) = false;
-    elseif max(rAll) == max(pAV)
-        rHeadDir(i) = false;
-        rLinVel(i) = false;
-        rAngVel(i) = true;
-        rPosition(i) = false;
-        rProgression(i) = false;
-    elseif max(rAll) == max(pLV)
-        rHeadDir(i) = false;
-        rLinVel(i) = true;
-        rAngVel(i) = false;
-        rPosition(i) = false;
-        rProgression(i) = false;
-    elseif max(rAll) == max(pPos)
-        rHeadDir(i) = false;
-        rLinVel(i) = false;
-        rAngVel(i) = false;
-        rPosition(i) = true;
-        rProgression(i) = false;
-    elseif max(rAll) == max(pProg)
-        rHeadDir(i) = false;
-        rLinVel(i) = false;
-        rAngVel(i) = false;
-        rPosition(i) = false;
-        rProgression(i) = true;
-    else
-        disp('if no correl is highest, something is the matter');
-    end
-%     pause
-end
-
-figure;
-percentHD = (sum(rHeadDir)/total2) * 100;
-disp([num2str(percentHD),'% are most response to head direction']);
-percentLV = (sum(rLinVel)/total2) * 100;
-disp([num2str(percentLV),'% are most response to linear velocity']);
-percentAV = (sum(rAngVel)/total2) * 100;
-disp([num2str(percentAV),'% are most response to angular velocity']);
-percentPos = (sum(rPosition)/total2) * 100;
-disp([num2str(percentPos),'% are most response to position']);
-percentProg = (sum(rProgression)/total2) * 100;
-disp([num2str(percentProg),'% are most response to progression']);
+% total2 = length(belongs2);
+% for i = 1:length(belongs2)
+%     for j = 1:4
+%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
+%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
+%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
+%         [rHD(j), pHD(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
+%     end
+%     rAll(1) = min(pHD);
+%     for j = 1:4
+%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
+%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
+%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
+%         [rAV(j), pAV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
+%     end
+%     rAll(2) = min(pAV);
+%     for j = 1:5
+%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
+%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
+%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
+%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,4));
+%         [rLV(j), pLV(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,5));
+%     end
+%     rAll(3) = min(pLV);
+%     for j = 1:3
+%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
+%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
+%         [rPos(j), pPos(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
+%     end
+%     rAll(4) = min(pPos);
+%     for j = 1:3
+%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,1));
+%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,2));
+%         [rProg(j), pProg(j)] = corr(srExcSm(:,belongs2(i)), srExcInpSm(:,3));
+%     end 
+%     rAll(5) = max(pProg);
+% %     rAll(:)
+% %     min(rAll)
+%     if max(rAll) == max(pHD)
+%         rHeadDir(i) = true;
+%         rLinVel(i) = false;
+%         rAngVel(i) = false;
+%         rPosition(i) = false;
+%         rProgression(i) = false;
+%     elseif max(rAll) == max(pAV)
+%         rHeadDir(i) = false;
+%         rLinVel(i) = false;
+%         rAngVel(i) = true;
+%         rPosition(i) = false;
+%         rProgression(i) = false;
+%     elseif max(rAll) == max(pLV)
+%         rHeadDir(i) = false;
+%         rLinVel(i) = true;
+%         rAngVel(i) = false;
+%         rPosition(i) = false;
+%         rProgression(i) = false;
+%     elseif max(rAll) == max(pPos)
+%         rHeadDir(i) = false;
+%         rLinVel(i) = false;
+%         rAngVel(i) = false;
+%         rPosition(i) = true;
+%         rProgression(i) = false;
+%     elseif max(rAll) == max(pProg)
+%         rHeadDir(i) = false;
+%         rLinVel(i) = false;
+%         rAngVel(i) = false;
+%         rPosition(i) = false;
+%         rProgression(i) = true;
+%     else
+%         disp('if no correl is highest, something is the matter');
+%     end
+% %     pause
+% end
+% 
+% figure;
+% percentHD = (sum(rHeadDir)/total2) * 100;
+% disp([num2str(percentHD),'% are most response to head direction']);
+% percentLV = (sum(rLinVel)/total2) * 100;
+% disp([num2str(percentLV),'% are most response to linear velocity']);
+% percentAV = (sum(rAngVel)/total2) * 100;
+% disp([num2str(percentAV),'% are most response to angular velocity']);
+% percentPos = (sum(rPosition)/total2) * 100;
+% disp([num2str(percentPos),'% are most response to position']);
+% percentProg = (sum(rProgression)/total2) * 100;
+% disp([num2str(percentProg),'% are most response to progression']);
 
 x = [percentHD percentLV percentAV percentPos percentProg];
 labels = {'Head Direction','LinearVelocity','Angular Velocity', 'Position','Progression'};
